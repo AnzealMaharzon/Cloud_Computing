@@ -1,6 +1,6 @@
 function PayslipSender() {
   var spreadsheet = SpreadsheetApp.getActive().getSheetByName('Sheet1');
-  var dataRange = spreadsheet.getRange("A2:D2").getValues();
+  var dataRange = spreadsheet.getRange("A2:D").getValues();
   Logger.log(dataRange);
   for(var i=0; i < dataRange.length; i++) {
     var employeeData = dataRange[i];
@@ -13,9 +13,9 @@ function PayslipSender() {
   }
 }
 function PayslipMessage(employeeName, salary) {
-  var message = "Hi " + employeeName + "\n";
-  message += "Your salary for the month of may has been deposited!\n";
-  message += "Payable: " + salary + "\n";
-  message += "Thanks";
+  var message = `Hi ${employeeName},
+Your salary for the month of May has been deposited!
+Payable: ${salary}
+Thanks`;
   return message;
 }
